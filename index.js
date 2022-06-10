@@ -25,11 +25,9 @@ app.get("/",(req,res)=>{
 
 app.post("/", (req, res) => {
   const payload = JSON.stringify(req.body);
-  var file = "documents/sample.txt" + new Date();
-  fs.writeFileSync(file, payload, "binary")
-  
-res.status(200).send()
-
+  fs.appendFile('documents/sample.txt',payload, 'utf8',function(err) {     
+    if (err) throw err;
+    console.log("Data inserted successfully.")
 });
 
 const server = app.listen(config.PORT, () => {
