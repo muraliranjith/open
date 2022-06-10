@@ -28,7 +28,7 @@ app.post("/", (req, res) => {
   var file = "documents/sample.txt" + new Date();
   fs.writeFileSync(file, payload, "binary")
   
-res.status(200)
+res.status(200).send()
 
 });
 
