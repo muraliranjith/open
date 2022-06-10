@@ -29,7 +29,8 @@ app.post("/", (req, res) => {
     if (err) throw err;
     console.log("Data inserted successfully.")
 });
-}
+res.status(200).send()
+});
 
 const server = app.listen(config.PORT, () => {
   console.log(`server is running port ${config.PORT}`);
