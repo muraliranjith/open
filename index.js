@@ -19,18 +19,17 @@ app.use(bodyParser.text({ type: "text/plain" }));
 
 // app.use("/", user);
 //test
+app.get("/",(req,res)=>{
+  res.send("ok")
+})
 
 app.post("/", (req, res) => {
   const payload = JSON.stringify(req.body);
-
   var file = "documents/sample.txt" + new Date();
-  fs.writeFileSync(file, payload, "binary", (err, result) => {
-    if (err) {
-      res.status(400).send(err);
-    } else {
-      console.log("result",result)
-      res.status(200).send("ok")};
-  });
+  fs.writeFileSync(file, payload, "binary")
+  
+res.send(payload)
+
 });
 
 const server = app.listen(config.PORT, () => {
