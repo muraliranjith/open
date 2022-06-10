@@ -25,5 +25,5 @@ module.exports = {
     acquire: 30000,
     idle: 10000
   },
-  PORT:3307,
+  PORT:22,
 };
